@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <markdown-editor></markdown-editor>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
@@ -20,8 +21,15 @@
 </template>
 
 <script>
+import MarkdownEditor from './MarkdownEditor';
+
 export default {
   name: 'hello',
+
+  components: {
+    MarkdownEditor,
+  },
+
   data() {
     return {
       msg: 'Welcome to Your Vue.js PWA',
@@ -31,7 +39,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 h1, h2 {
   font-weight: normal;
 }
