@@ -4,16 +4,24 @@
 
 <script>
   export default {
+    props: {
+      starred: {
+        type: Boolean,
+        default: false,
+      },
+    },
 
+    // vue doesn't allow mutation of props, so we have a different
+    // var representing state that can be changed in the component
     data() {
       return {
-        starred: false,
+        isStarred: this.starred,
       };
     },
 
     computed: {
       iconType() {
-        if (this.starred) {
+        if (this.isStarred) {
           return 'star';
         }
 
@@ -23,8 +31,8 @@
 
     methods: {
       toggleStar() {
-        this.starred = !this.starred;
-        this.$emit('star-toggled', { starred: this.starred });
+        this.isStarred = !this.isStarred;
+        this.$emit('star-toggled', { starred: this.isStarred });
       },
     },
 
