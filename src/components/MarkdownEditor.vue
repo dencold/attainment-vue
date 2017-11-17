@@ -10,7 +10,7 @@
 
   export default {
 
-    data: function data() {
+    data() {
       return {
         rawInput: '',
         editing: false,
